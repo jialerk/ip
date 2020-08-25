@@ -14,20 +14,29 @@ public class Duke {
                 " What can I do for you?\n" +
                 "____________________________________________________________\n");
         Scanner scan = new Scanner(System.in);
-        ArrayList<String> bye = new ArrayList<>();
+        ArrayList<Task> bye = new ArrayList<>();
         while(true){
             int num = 1;
             String hello = scan.nextLine();
             if(hello.equals("bye")){
                 break;
+            }else if(hello.contains("done ")){
+                String[] split = hello.split(" ");
+                int number = Integer.valueOf(split[1]);
+                bye.get(number-1).markAsDone();
+                System.out.println("____________________________________________________________\n" +
+                        " Nice! I've marked this task as done:\n   " +
+                        bye.get(number-1)+"\n"+
+                        "__________________________________________________________");
             }else if(hello.equals("list")){
                 System.out.println("____________________________________________________________");
-                for(String item : bye){
-                    System.out.println(num+". "+item);
+                for(Task item : bye){
+                    System.out.println(num+"."+item);
                 }
                 System.out.println("____________________________________________________________");
             }else {
-                bye.add(hello);
+                Task t = new Task(hello);
+                bye.add(t);
                 System.out.println("____________________________________________________________\n" +
                         " added: " + hello + "\n" +
                         "__________________________________________________________");
