@@ -14,31 +14,33 @@ public class Duke {
                 " What can I do for you?\n" +
                 "____________________________________________________________\n");
         Scanner scan = new Scanner(System.in);
-        ArrayList<Task> bye = new ArrayList<>();
+        ArrayList<Task> list = new ArrayList<>();
         while(true){
             int num = 1;
-            String hello = scan.nextLine();
-            if(hello.equals("bye")){
+            //scan input
+            String input = scan.nextLine();
+            //check input and act based on different commands
+            if(input.equals("bye")){
                 break;
-            }else if(hello.contains("done ")){
-                String[] split = hello.split(" ");
-                int number = Integer.valueOf(split[1]);
-                bye.get(number-1).markAsDone();
+            }else if(input.contains("done ")){
+                String[] message = input.split(" ");
+                int number = Integer.valueOf(message[1]);
+                list.get(number-1).markAsDone();
                 System.out.println("____________________________________________________________\n" +
                         " Nice! I've marked this task as done:\n   " +
-                        bye.get(number-1)+"\n"+
+                        list.get(number-1)+"\n"+
                         "__________________________________________________________");
-            }else if(hello.equals("list")){
+            }else if(input.equals("list")){
                 System.out.println("____________________________________________________________");
-                for(Task item : bye){
+                for(Task item : list){
                     System.out.println(num+"."+item);
                 }
                 System.out.println("____________________________________________________________");
             }else {
-                Task t = new Task(hello);
-                bye.add(t);
+                Task temp = new Task(input);
+                list.add(temp);
                 System.out.println("____________________________________________________________\n" +
-                        " added: " + hello + "\n" +
+                        " added: " + input + "\n" +
                         "__________________________________________________________");
             }
         }
