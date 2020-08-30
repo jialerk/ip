@@ -7,7 +7,7 @@ public class Todo extends Task{
     public void printTodo(){
         System.out.println("____________________________________________________________\n" +
                 "Got it. I've added this task:\n  " + this + "\n" +
-                "Now you have " + total + " tasks in the list.\n" +
+                "Now you have " + total + (total == 1 ? " task in the list.\n" : " tasks in the list.\n") +
                 "____________________________________________________________");
     }
 
