@@ -32,6 +32,9 @@ public class Duke {
                     Event event = createEvent(input);
                     list.add(event);
                     event.printEvent();
+                }else if (input.startsWith("delete ")){
+                    Task task = makeDelete(list,input);
+                    printDelete(task,list.size());
                 } else {
                     throw new DukeException();
                 }
@@ -72,10 +75,18 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 
-    private static void printDone(Task list){
+    private static void printDone(Task task){
         System.out.println("____________________________________________________________\n" +
                 " Nice! I've marked this task as done:\n   " +
-                list + "\n" +
+                task + "\n" +
+                "__________________________________________________________");
+    }
+
+    private static void printDelete(Task task, int total){
+        System.out.println("____________________________________________________________\n" +
+                " Noted. I've removed this task:\n   " +
+                task + "\n" +
+                " Now you have " + total + (total == 1 ? " task in the list.\n" : " tasks in the list.\n") +
                 "__________________________________________________________");
     }
 
@@ -114,6 +125,14 @@ public class Duke {
         int number = Integer.valueOf(message[1]);
         list.get(number-1).markAsDone();
         return list.get(number-1);
+    }
+
+    private static Task makeDelete(List<Task> list, String input){
+        String[] message = input.split(" ");
+        int number = Integer.valueOf(message[1]);
+        Task task = list.get(number-1);
+        list.remove(number-1);
+        return task;
     }
 
     private static Todo createTodo(String input) throws DukeTodoException{
