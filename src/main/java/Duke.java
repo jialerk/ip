@@ -12,7 +12,7 @@ public class Duke {
             //scan input
             String input = scan.nextLine();
             //check input and act based on different commands
-            try {
+            try { 
                 if (input.equals("bye")) {
                     break;
                 } else if (input.startsWith("done ")) {
