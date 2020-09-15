@@ -1,12 +1,24 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Duke {
+    public static String FILENAME = System.getProperty("user.dir") + "/data/duke.txt";
+    public static File file = new File(FILENAME);
+    public static List<Task> list = new ArrayList<>();
+
     public static void main(String[] args) {
+
         printStart();
+        initialiseList();
         Scanner scan = new Scanner(System.in);
-        List<Task> list = new ArrayList<Task>();
         while(true){
             int num = 1;
             //scan input
@@ -18,20 +30,24 @@ public class Duke {
                 } else if (input.startsWith("done ")) {
                     Task task = makeDone(list, input);
                     printDone(task);
+                    saveTask(list);
                 } else if (input.equals("list")) {
                     printList(list);
                 } else if (input.startsWith("todo")) {
-                    Todo todo = createTodo(input);
+                    Todo todo = createTodo(input,false);
                     list.add(todo);
                     todo.printTodo();
+                    saveTask(list);
                 } else if (input.startsWith("deadline")) {
-                    Deadline deadline = createDeadline(input);
+                    Deadline deadline = createDeadline(input,false);
                     list.add(deadline);
                     deadline.printDeadline();
+                    saveTask(list);
                 } else if (input.startsWith("event")) {
-                    Event event = createEvent(input);
+                    Event event = createEvent(input,false);
                     list.add(event);
                     event.printEvent();
+                    saveTask(list);
                 } else {
                     throw new DukeException();
                 }
@@ -43,9 +59,52 @@ public class Duke {
                 printEventError();
             }catch (DukeException e) {
                 printError();
+            }catch (IOException e){
+                System.out.println("Writing to file failed.");
             }
         }
         printBye();
+    }
+
+    private static void initialiseList() {
+        try {
+            getFile();
+        }catch(FileNotFoundException e){
+            try{
+                createFile();
+                System.out.println("File not found. Creating file...");
+            }catch(IOException e1){
+                System.out.println("Creating file failed.");
+            }
+        }
+    }
+
+    private static void getFile() throws FileNotFoundException {
+        Scanner scan = new Scanner(file);
+        while(scan.hasNextLine()){
+            String content = scan.nextLine();
+            String[] contents = content.split("\\s\\|\\s");
+            String legend = contents[0].trim();
+            Boolean done = Boolean.valueOf(contents[1].trim());
+            String action = contents[2].trim();
+            String action2 = "";
+            if(legend.equals("D") || legend.equals("E")){
+                action2 = contents[3].trim();
+            }
+            Task task;
+            if(legend.equals("T")){
+                list.add(new Todo(action,done));
+            }else if(legend.equals("D")){
+                list.add(new Deadline(action,done,action2));
+            }else if(legend.equals("E")){
+                list.add(new Event(action,done,action2));
+            }
+        }
+    }
+
+    private static void createFile() throws IOException{
+        Path path = Paths.get(FILENAME);
+        Files.createDirectory(path.getParent());
     }
 
     private static void printStart(){
@@ -72,10 +131,10 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 
-    private static void printDone(Task list){
+    private static void printDone(Task task){
         System.out.println("____________________________________________________________\n" +
                 " Nice! I've marked this task as done:\n   " +
-                list + "\n" +
+                task + "\n" +
                 "__________________________________________________________");
     }
 
@@ -116,7 +175,7 @@ public class Duke {
         return list.get(number-1);
     }
 
-    private static Todo createTodo(String input) throws DukeTodoException{
+    private static Todo createTodo(String input,boolean isDone) throws DukeTodoException{
         int startOfMessage = 5;
         int endOfMessage = input.length();
         if(endOfMessage <= startOfMessage){
@@ -126,12 +185,12 @@ public class Duke {
         if(message.isEmpty()){
             throw new DukeTodoException();
         }else {
-            Todo temp = new Todo(message);
+            Todo temp = new Todo(message, isDone);
             return temp;
         }
     }
 
-    private static Deadline createDeadline(String input) throws DukeDeadlineException{
+    private static Deadline createDeadline(String input,boolean isDone) throws DukeDeadlineException{
         int startOfMessage = 9;
         int endOfMessage = input.indexOf("/by")-1;
         int startOfBy = input.indexOf("/by") + 4;
@@ -144,12 +203,12 @@ public class Duke {
         if(message.isEmpty() || by.isEmpty()){
             throw new DukeDeadlineException();
         }else {
-            Deadline temp = new Deadline(message, by);
+            Deadline temp = new Deadline(message, isDone, by);
             return temp;
         }
     }
 
-    private static Event createEvent(String input) throws DukeEventException{
+    private static Event createEvent(String input,boolean isDone) throws DukeEventException{
         int startOfMessage = 6;
         int endOfMessage = input.indexOf("/at")-1;
         int startOfAt = input.indexOf("/at") + 4;
@@ -162,7 +221,25 @@ public class Duke {
         if(message.isEmpty() || at.isEmpty()){
             throw new DukeEventException();
         }
-        Event temp = new Event(message, at);
+        Event temp = new Event(message, isDone,at);
         return temp;
+    }
+
+    private static void saveTask(List<Task> list) throws IOException{
+        FileWriter fileWriter = new FileWriter(FILENAME);
+        for(Task task : list){
+            if(task instanceof Todo){
+                fileWriter.write("T | " + (task.isDone ? "1" : "0") + " | " +
+                        task.description + "\n");
+            }else if(task instanceof Deadline){
+                String[] deadline =  task.description.split("/by");
+                fileWriter.write("D | " + (task.isDone ? "1" : "0") + " | " +
+                        task.description + " | " + ((Deadline) task).by + "\n");
+            }else if(task instanceof Event) {
+                fileWriter.write("E | " + (task.isDone ? "1" : "0") + " | " +
+                        task.description + " | " + ((Event) task).at + "\n");
+            }
+        }
+        fileWriter.close();
     }
 }
