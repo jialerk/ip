@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Duke {
-    public static String FILENAME = System.getProperty("user.dir") + "/data/duke.txt";
+    public static String FILENAME = "data/duke.txt";
     public static File file = new File(FILENAME);
     public static List<Task> list = new ArrayList<>();
 
