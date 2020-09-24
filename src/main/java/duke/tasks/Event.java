@@ -1,5 +1,8 @@
 package duke.tasks;
 
+/**
+ * A class of <code>Event</code> for storage in a <code>TaskList</code>
+ */
 public class Event extends Task {
 
     protected String at;

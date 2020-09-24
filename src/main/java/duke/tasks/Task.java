@@ -1,5 +1,8 @@
 package duke.tasks;
 
+/**
+ * A class of tasks that a person can make to save in their to-do list
+ */
 public class Task {
     protected String description;
     protected boolean isDone;
@@ -9,14 +12,25 @@ public class Task {
         this.isDone = isDone;
     }
 
+    /**
+     * Checks whether a task is done
+     * @return true when a task is done
+     */
     public String getStatusIcon() {
         return (isDone ? "\u2713" : "\u2718"); //return tick or X symbols
     }
 
+    /**
+     * Marks the task as done
+     */
     public void markAsDone(){
         this.isDone = true;
     }
 
+    /**
+     * Prints the String representation of the class
+     * @return the String representation of the class
+     */
     @Override
     public String toString(){
         return "[" + this.getStatusIcon() + "] " + this.description;

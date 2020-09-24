@@ -1,5 +1,8 @@
 package duke.tasks;
 
+/**
+ * A class of <code>Deadline</code> for storage in a <code>TaskList</code>
+ */
 public class Deadline extends Task {
 
     protected String by;

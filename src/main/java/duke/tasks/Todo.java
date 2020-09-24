@@ -1,5 +1,8 @@
 package duke.tasks;
 
+/**
+ * A class of <code>Todo</code> for storage in a <code>TaskList</code>
+ */
 public class Todo extends Task {
 
     public Todo(String description, boolean isDone) {

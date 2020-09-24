@@ -1,9 +1,25 @@
 package duke.parser;
 
-import duke.command.*;
+import duke.command.AddDeadlineCommand;
+import duke.command.AddEventCommand;
+import duke.command.AddTodoCommand;
+import duke.command.Command;
+import duke.command.DeleteCommand;
+import duke.command.DoneCommand;
+import duke.command.ExitCommand;
+import duke.command.ListCommand;
+import duke.command.SorryCommand;
 
+/**
+ * Allows the parsing of inputs provided by the user
+ */
 public class Parser {
 
+    /**
+     * Parses the inputs provided by the user
+     * @param fullCommand
+     * @return returns a command instance to execute a command
+     */
     public static Command parse(String fullCommand){
         if(fullCommand.equals("bye")){
             return new ExitCommand();
