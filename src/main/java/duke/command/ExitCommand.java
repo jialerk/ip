@@ -1,7 +1,5 @@
 package duke.command;
 
-import duke.tasks.TaskList;
-
 /**
  * A class to allow the user to exit the program when they input "bye"
  */

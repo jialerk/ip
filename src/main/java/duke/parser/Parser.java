@@ -7,6 +7,7 @@ import duke.command.Command;
 import duke.command.DeleteCommand;
 import duke.command.DoneCommand;
 import duke.command.ExitCommand;
+import duke.command.FindCommand;
 import duke.command.ListCommand;
 import duke.command.SorryCommand;
 
@@ -17,7 +18,7 @@ public class Parser {
 
     /**
      * Parses the inputs provided by the user
-     * @param fullCommand
+     * @param fullCommand input by the user
      * @return returns a command instance to execute a command
      */
     public static Command parse(String fullCommand){
@@ -35,7 +36,9 @@ public class Parser {
             return new AddEventCommand(fullCommand);
         }else if (fullCommand.startsWith("delete ")){
             return new DeleteCommand(fullCommand);
-        } else {
+        }else if (fullCommand.startsWith("find")) {
+            return new FindCommand(fullCommand);
+        }else{
             return new SorryCommand();
         }
     }
