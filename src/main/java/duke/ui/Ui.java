@@ -1,6 +1,7 @@
 package duke.ui;
 
 import duke.tasks.Task;
+import duke.tasks.TaskList;
 
 import java.util.List;
 import java.util.Scanner;
@@ -79,6 +80,29 @@ public class Ui {
         System.out.println("____________________________________________________________\n" +
                 " ☹ OOPS!!! The description of a event cannot be empty.\n" +
                 "__________________________________________________________");
+    }
+
+    public static void printFind(TaskList taskList,String find){
+        int taskPresent = 0;
+        for (Task task : taskList.getList()){
+            if(task.toString().contains(find)){
+                Ui.printMatch(taskPresent);
+                System.out.println(task);
+                taskPresent = 1;
+            }
+        }
+        if(taskPresent == 0){
+            System.out.println("____________________________________________________________\n" +
+                    " Sorry! I could not find any task with " + find + " in the list");
+        }
+        System.out.println("____________________________________________________________");
+    }
+
+    public static void printMatch(int taskPresent){
+        if(taskPresent == 0){
+            System.out.println("____________________________________________________________\n" +
+                    " Here are the matching tasks in your list:");
+        }
     }
 
     public static void fileNotFoundError(){
