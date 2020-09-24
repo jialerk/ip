@@ -1,4 +1,9 @@
-public class DoneCommand extends Command{
+package duke.command;
+
+import duke.tasks.TaskList;
+import duke.ui.Ui;
+
+public class DoneCommand extends Command {
     private String fullCommand;
 
     public DoneCommand(String fullCommand) {

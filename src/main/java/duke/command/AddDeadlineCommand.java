@@ -1,11 +1,17 @@
-public class AddDeadlineCommand extends Command{
+package duke.command;
+
+import duke.exception.DukeDeadlineException;
+import duke.tasks.Deadline;
+import duke.tasks.TaskList;
+
+public class AddDeadlineCommand extends Command {
     private String fullCommand;
 
     public AddDeadlineCommand(String fullCommand){
         this.fullCommand = fullCommand;
     }
 
-    public void execute(TaskList taskList) throws DukeDeadlineException{
+    public void execute(TaskList taskList) throws DukeDeadlineException {
         int startOfMessage = 9;
         int endOfMessage = fullCommand.indexOf("/by")-1;
         int startOfBy = fullCommand.indexOf("/by") + 4;
@@ -20,7 +26,7 @@ public class AddDeadlineCommand extends Command{
         }else {
             Deadline temp = new Deadline(message, false, by);
             taskList.getList().add(temp);
-            temp.printDeadline();
+            temp.printDeadline(taskList);
         }
     }
 

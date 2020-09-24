@@ -1,12 +1,12 @@
+package duke.tasks;
+
 public class Task {
     protected String description;
     protected boolean isDone;
-    protected static int total = 0;
 
     public Task(String description, boolean isDone) {
         this.description = description;
         this.isDone = isDone;
-        total++;
     }
 
     public String getStatusIcon() {

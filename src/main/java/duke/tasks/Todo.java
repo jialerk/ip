@@ -1,13 +1,16 @@
-public class Todo extends Task{
+package duke.tasks;
+
+public class Todo extends Task {
 
     public Todo(String description, boolean isDone) {
         super(description,isDone);
     }
 
-    public void printTodo(){
+    public void printTodo(TaskList taskList){
         System.out.println("____________________________________________________________\n" +
                 "Got it. I've added this task:\n  " + this + "\n" +
-                "Now you have " + total + (total == 1 ? " task in the list.\n" : " tasks in the list.\n") +
+                "Now you have " + taskList.getList().size() + (taskList.getList().size() == 1
+                ? " task in the list.\n" : " duke.tasks in the list.\n") +
                 "____________________________________________________________");
     }
 

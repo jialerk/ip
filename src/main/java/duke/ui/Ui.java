@@ -1,3 +1,7 @@
+package duke.ui;
+
+import duke.tasks.Task;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,7 +28,7 @@ public class Ui {
     public static void printList(List<Task> list){
         int num = 1;
         System.out.println("____________________________________________________________\n" +
-                "Here are the tasks in your list:");
+                "Here are the duke.tasks in your list:");
         for(Task item : list){
             System.out.println(num+"."+item);
             num++;
@@ -43,7 +47,7 @@ public class Ui {
         System.out.println("____________________________________________________________\n" +
                 " Noted. I've removed this task:\n   " +
                 task + "\n" +
-                " Now you have " + total + (total == 1 ? " task in the list.\n" : " tasks in the list.\n") +
+                " Now you have " + total + (total == 1 ? " task in the list.\n" : " duke.tasks in the list.\n") +
                 "__________________________________________________________");
     }
 

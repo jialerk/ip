@@ -1,4 +1,10 @@
-public class DeleteCommand extends Command{
+package duke.command;
+
+import duke.tasks.Task;
+import duke.tasks.TaskList;
+import duke.ui.Ui;
+
+public class DeleteCommand extends Command {
     private String fullCommand;
     
     public DeleteCommand(String fullCommand){

@@ -1,3 +1,15 @@
+package duke;
+
+import duke.command.Command;
+import duke.exception.DukeDeadlineException;
+import duke.exception.DukeEventException;
+import duke.exception.DukeException;
+import duke.exception.DukeTodoException;
+import duke.parser.Parser;
+import duke.storage.Storage;
+import duke.tasks.TaskList;
+import duke.ui.Ui;
+
 import java.io.IOException;
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
+package duke.tasks;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
-import java.util.ArrayList;
 
 public class TaskList {
     private List<Task> taskList;

@@ -1,11 +1,17 @@
-public class AddEventCommand extends Command{
+package duke.command;
+
+import duke.exception.DukeEventException;
+import duke.tasks.Event;
+import duke.tasks.TaskList;
+
+public class AddEventCommand extends Command {
     private String fullCommand;
 
     public AddEventCommand(String fullCommand){
         this.fullCommand = fullCommand;
     }
 
-    public void execute(TaskList taskList) throws DukeEventException{
+    public void execute(TaskList taskList) throws DukeEventException {
         int startOfMessage = 6;
         int endOfMessage = fullCommand.indexOf("/at")-1;
         int startOfAt = fullCommand.indexOf("/at") + 4;
@@ -20,7 +26,7 @@ public class AddEventCommand extends Command{
         }
         Event temp = new Event(message, false,at);
         taskList.getList().add(temp);
-        temp.printEvent();
+        temp.printEvent(taskList);
     }
 
     public boolean isExit(){

@@ -1,4 +1,6 @@
-public class Deadline extends Task{
+package duke.tasks;
+
+public class Deadline extends Task {
 
     protected String by;
 
@@ -7,10 +9,11 @@ public class Deadline extends Task{
         this.by = by;
     }
 
-    public void printDeadline(){
+    public void printDeadline(TaskList taskList){
         System.out.println("____________________________________________________________\n" +
                 "Got it. I've added this task:\n  " + this + "\n" +
-                "Now you have " + total + (total == 1 ? " task in the list.\n" : " tasks in the list.\n") +
+                "Now you have " + taskList.getList().size() + (taskList.getList().size() == 1
+                ? " task in the list.\n" : " duke.tasks in the list.\n") +
                 "____________________________________________________________");
     }
 

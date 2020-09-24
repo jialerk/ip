@@ -1,3 +1,11 @@
+package duke.storage;
+
+import duke.tasks.Deadline;
+import duke.tasks.Event;
+import duke.tasks.TaskList;
+import duke.tasks.Todo;
+import duke.ui.Ui;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -39,8 +47,6 @@ public class Storage {
             String content = scan.nextLine();
             String[] contents = content.split("\\s\\|\\s");
             String legend = contents[0].trim();
-            System.out.println(contents[1].trim());
-            System.out.println(content);
             Boolean done = (Integer.valueOf(contents[1].trim()) == 1) ? true : false;
             String action = contents[2].trim();
             String action2 = "";
