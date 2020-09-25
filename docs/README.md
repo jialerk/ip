@@ -4,9 +4,9 @@
 
 ### Add tasks to a list - `todo` `deadline` `event`
 Allows the user to add tasks to their list
-  1. ToDos: tasks without any date/time attached to it e.g., visit the Zoo
-  2. Deadlines: tasks that need to be done before a specific date/time e.g., submit report by 20/10/2020 12am
-  3. Events: tasks that start at a specific time and ends at a specific time e.g., team project meeting on 20/10/2020 3-5pm
+    1. ToDos: tasks without any date/time attached to it e.g., visit the Zoo
+    2. Deadlines: tasks that need to be done before a specific date/time e.g., submit report by 20/10/2020 12am
+    3. Events: tasks that start at a specific time and ends at a specific time e.g., team project meeting on 20/10/2020 3-5pm
 
 ### List tasks - `list`
 Allows the user to store text entered and display back to them when requested
@@ -27,7 +27,7 @@ Allows the user to exit Duke
 
 ### Add
 Adds a task to the list
-Format - `todo {DESCRIPTION}`, `deadline {DESCRIPTION} /by {DATE/TIME}`, `event {DESCRIPTION} /at {DATE/TIME}`
+#### Format - `todo {DESCRIPTION}`, `deadline {DESCRIPTION} /by {DATE/TIME}`, `event {DESCRIPTION} /at {DATE/TIME}`
 
 #### Example of usage: 
 ```
@@ -65,7 +65,7 @@ __________________________________________________________
 
 ### List
 Prints the tasks in the list
-format - `list`
+#### Format - `list`
 
 #### Example of usage:
 `list`
@@ -82,7 +82,7 @@ ____________________________________________________________
 
 ### Find
 Finds all tasks in the list that contains the keywords that the user inputs
-Format - `find {KEYWORD}`
+#### Format - `find {KEYWORD}`
 
 #### Example of usage:
 `find team`
@@ -103,7 +103,7 @@ ____________________________________________________________
 ```
 ### Done
 Marks a task in the list at the index provided by the user
-format - `done {INDEX}`
+#### Format - `done {INDEX}`
 
 #### Example of usage:
 `done 3`
@@ -126,7 +126,7 @@ ____________________________________________________________
 
 ### Delete
 Deletes the task in the list at the index provided by the user
-format - `delete {INDEX}` 
+#### Format - `delete {INDEX}` 
 
 #### Example of usage:
 `Delete 2`
@@ -150,7 +150,7 @@ ____________________________________________________________
 
 ### Exit
 Exits the Duke application
-format - `bye`
+#### Format - `bye`
 
 #### Example of usage
 `bye`
