@@ -29,7 +29,7 @@ public class Ui {
     public static void printList(List<Task> list){
         int num = 1;
         System.out.println("____________________________________________________________\n" +
-                "Here are the tasks in your list:");
+                "Here are the task(s) in your list:");
         for(Task item : list){
             System.out.println(num+"."+item);
             num++;
@@ -101,7 +101,7 @@ public class Ui {
     public static void printMatch(int taskPresent){
         if(taskPresent == 0){
             System.out.println("____________________________________________________________\n" +
-                    " Here are the matching tasks in your list:");
+                    " Here are the matching task(s) in your list:");
         }
     }
 
