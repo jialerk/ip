@@ -17,7 +17,7 @@ public class DoneCommand extends ExecuteCommand {
      * Marks a <code>Task</code> in a <code>TaskList</code> as done
      * @param taskList the <code>TaskList</code> instance of the TaskList class for the user to obtain the Task in the TaskList specified by the user and set it as done
      */
-    public void execute(TaskList taskList){
+    public void execute(TaskList taskList) throws NumberFormatException{
             String[] message = this.fullCommand.split(" ");
             int number = Integer.valueOf(message[1]);
             taskList.getList().get(number-1).markAsDone();

@@ -56,9 +56,12 @@ ____________________________________________________________
 ```
 
 #### Important notes:
-An error `____________________________________________________________
+An error will occur if the user does not enter a `DATE/TIME` for deadline and event tasks.
+```
+____________________________________________________________
  ☹ OOPS!!! The description of a deadline/event cannot be empty.
-__________________________________________________________` will occur if the user does not enter a {DATE/TIME} for deadline and event tasks.
+__________________________________________________________
+```
 
 ### `list`
 Prints the tasks in the list
@@ -91,13 +94,37 @@ ____________________________________________________________
 ____________________________________________________________
 ```
 #### Important notes:
-If the keyword cannot be found in the list, an error `____________________________________________________________
+An error will occur if the `KEYWORD` cannot be found in the list
+```
+____________________________________________________________
 Sorry! I could not find any task with {KEYWORD} in the list
-____________________________________________________________` will occur
+____________________________________________________________
+```
+### `done`
+Marks a task in the list at the index provided by the user
+format - `done {INDEX}`
 
+#### Example of usage:
+`done 3`
+
+#### Expected outcome:
+```
+____________________________________________________________
+ Nice! I've marked this task as done:
+   [E][✓] team project meeting (at: 20/10/2020 3-5pm)
+____________________________________________________________
+```
+
+#### important notes:
+An error will occur if the `INDEX` is not an integer
+```
+____________________________________________________________
+ ☹ OOPS!!! Invalid index format entered
+____________________________________________________________
+```
 
 ### `delete` 
-Deletes the task in the list at the index provided
+Deletes the task in the list at the index provided by the user
 format - `delete {INDEX}` 
 
 #### Example of usage:

@@ -18,7 +18,7 @@ public class DeleteCommand extends ExecuteCommand {
      * Deletes a Task in a <code>taskList</code>
      * @param taskList the <code>TaskList</code> instance of the TaskList class for the user to delete from
      */
-    public void execute(TaskList taskList){
+    public void execute(TaskList taskList) throws NumberFormatException{
         String[] message = this.fullCommand.split(" ");
         int number = Integer.valueOf(message[1]);
         Task task = taskList.getList().get(number-1);

@@ -64,6 +64,8 @@ public class Duke {
                 Ui.printError();
             } catch (IOException e) {
                 Ui.printWritingError();
+            }catch (NumberFormatException e){
+                Ui.printIndexError();
             }
         }
         Ui.printBye();

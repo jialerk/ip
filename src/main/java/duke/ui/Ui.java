@@ -41,7 +41,7 @@ public class Ui {
         System.out.println("____________________________________________________________\n" +
                 " Nice! I've marked this task as done:\n   " +
                 task + "\n" +
-                "__________________________________________________________");
+                "____________________________________________________________");
     }
 
     public static void printDelete(Task task, int total){
@@ -49,37 +49,43 @@ public class Ui {
                 " Noted. I've removed this task:\n   " +
                 task + "\n" +
                 " Now you have " + total + (total == 1 ? " task in the list.\n" : " tasks in the list.\n") +
-                "__________________________________________________________");
+                "____________________________________________________________");
     }
 
     public static void printBye(){
         System.out.println("____________________________________________________________\n" +
                 " Bye. Hope to see you again soon!\n" +
-                "__________________________________________________________");
+                "____________________________________________________________");
     }
 
     public static void printError(){
         System.out.println("____________________________________________________________\n" +
                 " ☹ OOPS!!! I'm sorry, but I don't know what that means :-(\n" +
-                "__________________________________________________________");
+                "____________________________________________________________");
     }
 
     public static void printTodoError(){
         System.out.println("____________________________________________________________\n" +
                 " ☹ OOPS!!! The description of a todo cannot be empty.\n" +
-                "__________________________________________________________");
+                "____________________________________________________________");
     }
 
     public static void printDeadlineError(){
         System.out.println("____________________________________________________________\n" +
                 " ☹ OOPS!!! The description of a deadline cannot be empty.\n" +
-                "__________________________________________________________");
+                "____________________________________________________________");
     }
 
     public static void printEventError(){
         System.out.println("____________________________________________________________\n" +
                 " ☹ OOPS!!! The description of a event cannot be empty.\n" +
-                "__________________________________________________________");
+                "____________________________________________________________");
+    }
+
+    public static void printIndexError(){
+        System.out.println("____________________________________________________________\n" +
+                " ☹ OOPS!!! Invalid index format entered\n" +
+                "____________________________________________________________");
     }
 
     public static void printFind(TaskList taskList,String find){
