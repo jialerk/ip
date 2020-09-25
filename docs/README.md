@@ -33,14 +33,14 @@ Adds a task to the list
 
 Format - `todo {DESCRIPTION}`, `deadline {DESCRIPTION} /by {DATE/TIME}`, `event {DESCRIPTION} /at {DATE/TIME}`
 
-#### Example of usage: 
+##### Example of usage: 
 ```
 todo visit the Zoo
 deadline submit report /by 20/10/2020 12am
 event team project meeting /at 20/10/2020 3-5pm
 ```
 
-#### Expected outcome:
+##### Expected outcome:
 ```
 ____________________________________________________________
 Got it. I've added this task:
@@ -59,7 +59,7 @@ Now you have 3 tasks in the list.
 ____________________________________________________________
 ```
 
-#### Important notes:
+##### Important notes:
 An error will occur if the user does not enter a `DATE/TIME` for deadline and event tasks.
 ```
 ____________________________________________________________
@@ -72,10 +72,10 @@ Prints the tasks in the list
 
 Format - `list`
 
-#### Example of usage:
+##### Example of usage:
 `list`
 
-#### Expected outcome:
+##### Expected outcome:
 ```
 ____________________________________________________________
 Here are the task(s) in your list:
@@ -90,17 +90,17 @@ Finds all tasks in the list that contains the keywords that the user inputs
 
 Format - `find {KEYWORD}`
 
-#### Example of usage:
+##### Example of usage:
 `find team`
 
-#### Expected outcome:
+##### Expected outcome:
 ```
 ____________________________________________________________
  Here are the matching task(s) in your list:
 [E][✘] team project meeting (at: 20/10/2020 3-5pm)
 ____________________________________________________________
 ```
-#### Important notes:
+##### Important notes:
 An error will occur if the `KEYWORD` cannot be found in the list
 ```
 ____________________________________________________________
@@ -112,10 +112,10 @@ Marks a task in the list at the index provided by the user
 
 Format - `done {INDEX}`
 
-#### Example of usage:
+##### Example of usage:
 `done 3`
 
-#### Expected outcome:
+##### Expected outcome:
 ```
 ____________________________________________________________
  Nice! I've marked this task as done:
@@ -123,7 +123,7 @@ ____________________________________________________________
 ____________________________________________________________
 ```
 
-#### important notes:
+##### important notes:
 An error will occur if the `INDEX` is not an integer
 ```
 ____________________________________________________________
@@ -136,10 +136,10 @@ Deletes the task in the list at the index provided by the user
 
 Format - `delete {INDEX}` 
 
-#### Example of usage:
+##### Example of usage:
 `Delete 2`
 
-#### Expected outcome:
+##### Expected outcome:
 ```
 ____________________________________________________________
  Noted. I've removed this task:
@@ -148,7 +148,7 @@ ____________________________________________________________
 ____________________________________________________________
 ```
 
-#### important notes:
+##### important notes:
 An error will occur if the `INDEX` is not an integer
 ```
 ____________________________________________________________
@@ -161,10 +161,10 @@ Exits the Duke application
 
 Format - `bye`
 
-#### Example of usage
+##### Example of usage
 `bye`
 
-#### Expected outcome:
+##### Expected outcome:
 ```
 ____________________________________________________________
  Bye. Hope to see you again soon!
