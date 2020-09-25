@@ -16,7 +16,7 @@ public class Deadline extends Task {
         System.out.println("____________________________________________________________\n" +
                 "Got it. I've added this task:\n  " + this + "\n" +
                 "Now you have " + taskList.getList().size() + (taskList.getList().size() == 1
-                ? " task in the list.\n" : " duke.tasks in the list.\n") +
+                ? " task in the list.\n" : " tasks in the list.\n") +
                 "____________________________________________________________");
     }
 

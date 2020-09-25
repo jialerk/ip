@@ -37,5 +37,6 @@ event team project meeting /at 20/10/2020 3-5pm
 ```
 
 Expected outcome:
+```
 
-`outcome`
+```
