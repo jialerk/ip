@@ -27,7 +27,8 @@ Allows the user to exit Duke
 
 ### Add
 Adds a task to the list
-#### Format - `todo {DESCRIPTION}`, `deadline {DESCRIPTION} /by {DATE/TIME}`, `event {DESCRIPTION} /at {DATE/TIME}`
+
+Format - `todo {DESCRIPTION}`, `deadline {DESCRIPTION} /by {DATE/TIME}`, `event {DESCRIPTION} /at {DATE/TIME}`
 
 #### Example of usage: 
 ```
@@ -65,7 +66,8 @@ __________________________________________________________
 
 ### List
 Prints the tasks in the list
-#### Format - `list`
+
+Format - `list`
 
 #### Example of usage:
 `list`
@@ -82,7 +84,8 @@ ____________________________________________________________
 
 ### Find
 Finds all tasks in the list that contains the keywords that the user inputs
-#### Format - `find {KEYWORD}`
+
+Format - `find {KEYWORD}`
 
 #### Example of usage:
 `find team`
@@ -103,7 +106,8 @@ ____________________________________________________________
 ```
 ### Done
 Marks a task in the list at the index provided by the user
-#### Format - `done {INDEX}`
+
+Format - `done {INDEX}`
 
 #### Example of usage:
 `done 3`
@@ -126,7 +130,8 @@ ____________________________________________________________
 
 ### Delete
 Deletes the task in the list at the index provided by the user
-#### Format - `delete {INDEX}` 
+
+Format - `delete {INDEX}` 
 
 #### Example of usage:
 `Delete 2`
@@ -150,7 +155,8 @@ ____________________________________________________________
 
 ### Exit
 Exits the Duke application
-#### Format - `bye`
+
+Format - `bye`
 
 #### Example of usage
 `bye`
