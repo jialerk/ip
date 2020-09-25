@@ -25,7 +25,7 @@ Allows the user to exit Duke
 
 ## Usage
 
-### `todo` `deadline` `event`
+### Add
 Adds a task to the list
 Format - `todo {DESCRIPTION}`, `deadline {DESCRIPTION} /by {DATE/TIME}`, `event {DESCRIPTION} /at {DATE/TIME}`
 
@@ -63,8 +63,9 @@ ____________________________________________________________
 __________________________________________________________
 ```
 
-### `list`
+### List
 Prints the tasks in the list
+format - `list`
 
 #### Example of usage:
 `list`
@@ -79,7 +80,7 @@ Here are the task(s) in your list:
 ____________________________________________________________
 ```
 
-### `find`
+### Find
 Finds all tasks in the list that contains the keywords that the user inputs
 Format - `find {KEYWORD}`
 
@@ -100,7 +101,7 @@ ____________________________________________________________
 Sorry! I could not find any task with {KEYWORD} in the list
 ____________________________________________________________
 ```
-### `done`
+### Done
 Marks a task in the list at the index provided by the user
 format - `done {INDEX}`
 
@@ -123,13 +124,42 @@ ____________________________________________________________
 ____________________________________________________________
 ```
 
-### `delete` 
+### Delete
 Deletes the task in the list at the index provided by the user
 format - `delete {INDEX}` 
 
 #### Example of usage:
 `Delete 2`
+
+#### Expected outcome:
+```
+____________________________________________________________
+ Noted. I've removed this task:
+   [D][✘] submit report (by: 20/10/2020 12am)
+ Now you have 2 tasks in the list.
+____________________________________________________________
 ```
 
+#### important notes:
+An error will occur if the `INDEX` is not an integer
 ```
-####
+____________________________________________________________
+ ☹ OOPS!!! Invalid index format entered
+____________________________________________________________
+```
+
+### Exit
+Exits the Duke application
+format - `bye`
+
+#### Example of usage
+`bye`
+
+#### Expected outcome:
+```
+____________________________________________________________
+ Bye. Hope to see you again soon!
+____________________________________________________________
+
+Process finished with exit code 0
+```
