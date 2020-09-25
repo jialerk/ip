@@ -16,7 +16,7 @@ public class AddDeadlineCommand extends ExecuteCommand {
     }
 
     /**
-     * Adds an <code>Deadline</code> class into a <code>TaskList</code>
+     * Adds an instance of the <code>Deadline</code> class into a <code>TaskList</code>
      * @param taskList An instance of the <code>TaskList</code> class for the user to append to
      * @throws DukeTodoException If there are no parameters written to initialise the creation of a new Deadline class
      */
