@@ -67,6 +67,7 @@ public class Duke {
             }catch (NumberFormatException e){
                 Ui.printIndexError();
             }
+            
         }
         Ui.printBye();
     }
